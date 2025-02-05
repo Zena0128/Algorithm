@@ -39,11 +39,13 @@ public class Main {
     // 
     static void solve() {
         int[] arr = {4, 7};
+        // 한자리수는 이미 계산했으므로 두자리수~아홉자리수 총 8번 루프돌면서 계산
         for (int i=0;i<8;i++) {
             // System.out.println(list);
             List<Long> tempList = new ArrayList<>();
             int size = list.size();
             for (int j=0;j<size;j++) {
+                // 현재 list에 있는 수들의 일의 자리 수에 4, 7을 붙인 후 범위 만족하는지 확인
                 for (int k=0;k<2;k++) {
                     long temp = list.get(j)*10 + arr[k];
                     tempList.add(temp);
@@ -53,7 +55,6 @@ public class Main {
                 }
             }
             list = tempList;
-            if (list.isEmpty()) {return;}
         }
     }
 }
