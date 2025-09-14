@@ -1,24 +1,18 @@
-def available(lost, r):
-    try:
-        idx = lost.index(r)
-    except ValueError:
-        idx = -1
-    return idx
-
 def solution(n, lost, reserve):
     lost = set(lost)
     reserve = set(reserve)
     both = lost.intersection(reserve)
-    lost = lost - both
-    reserve = reserve - both
-    answer = n-len(lost)
-
+    lost -= both
+    reserve -= both
+    answer = 0
+    lost = list(lost)
+    reserve = list(reserve)
+    
     for r in reserve:
-        if len(lost) == 0:
-            return answer
-        for i in [-1, 1]:
-            if r+i in lost:
-                lost.remove(r+i)
-                answer += 1
-                break
-    return answer
+        if r-1 in lost:
+            lost.remove(r-1)
+            continue
+        if r+1 in lost:
+            lost.remove(r+1)
+    
+    return n-len(lost)
