@@ -1,0 +1,2 @@
+-- 코드를 입력하세요
+select distinct t1.cart_id from (select cart_id from cart_products where name = 'Milk') as t1, (select cart_id from cart_products where name = 'Yogurt') as t2 where t1.cart_id = t2.cart_id;
