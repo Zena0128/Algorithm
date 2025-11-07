@@ -1,0 +1,2 @@
+-- 코드를 입력하세요
+SELECT category, price, product_name from food_product as f where category in ('과자', '국', '김치', '식용유') and price = (select max(price) from food_product where category = f.category) group by category order by price desc;
